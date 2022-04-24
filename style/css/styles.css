@@ -12,6 +12,196 @@
   -webkit-user-drag: none;
 }
 
+@media screen and (min-width: 320px) and (max-width: 842px) {
+  .section--zero {
+    display: none !important;
+  }
+  .section--one {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 586px) {
+  .section--zero {
+    display: none !important;
+  }
+  .section--one {
+    display: none !important;
+  }
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #f3f4f7;
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #6576ff;
+  border-radius: 6px;
+}
+
+.miru--modal__raspberry {
+  color: #fff;
+  display: none;
+  width: 100%;
+}
+
+.miru--modal__raspberry h1 {
+  text-transform: capitalize;
+  margin-bottom: 4rem;
+}
+
+.miru--modal__raspberry .wrap--node {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.miru--modal__raspberry .wrap--node .node {
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.miru--modal__raspberry .wrap--node .node .label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-transform: uppercase;
+  max-width: 300px;
+}
+
+.miru--modal__raspberry .wrap--node .node .label .state {
+  position: relative;
+}
+
+.miru--modal__raspberry .wrap--node .node.connected > .label > .state::before {
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #38ff38;
+  left: -1.65rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-animation: blink 1s infinite linear;
+          animation: blink 1s infinite linear;
+}
+
+.miru--modal__raspberry .wrap--node .node .box--image {
+  max-width: 300px;
+}
+
+.miru--modal__raspberry .wrap--node .node .box--image > img {
+  width: 100%;
+}
+
+.miru--checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.miru--checkbox .behavior {
+  width: 100px;
+  height: 50px;
+  position: relative;
+}
+
+.miru--checkbox .behavior::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background-color: #dbdbdb;
+  border-radius: 4px;
+  -webkit-transition: background-color 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.miru--checkbox .behavior::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: #fff -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
+  background: #fff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  -webkit-box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
+          box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15), 0 0 0 1px rgba(34, 36, 38, 0.15) inset;
+  border-radius: 50%;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+  z-index: 1;
+}
+
+.miru--checkbox .behavior.active::after {
+  background-color: #6576ff;
+}
+
+.miru--checkbox .behavior.active::before {
+  top: 50%;
+  -webkit-transform: translate(100%, -50%);
+          transform: translate(100%, -50%);
+}
+
+.miru--checkbox .label {
+  margin-left: 2rem !important;
+}
+
 .container {
   background-color: #f3f4f7;
   padding: 0 2rem;
@@ -20,6 +210,35 @@
 .container header {
   height: 6rem;
   max-height: 6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container header .state {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.container header .state svg {
+  width: 3rem;
+}
+
+.container header .state span {
+  margin-left: 1rem;
+  font-size: 2rem;
+  text-transform: capitalize;
 }
 
 .container header .logo {
@@ -40,6 +259,14 @@
   text-transform: uppercase;
   margin-left: 1rem;
   font-size: 2rem;
+}
+
+.container header .logo--name.section--zero {
+  display: block;
+}
+
+.container header .logo--name.section--one {
+  display: none;
 }
 
 section {
@@ -70,10 +297,11 @@ section .title--sensor svg {
 section .sensor__nav {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (minmax(500px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
   grid-gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 section .sensor__nav .sensor__nav {
