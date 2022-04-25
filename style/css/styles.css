@@ -297,10 +297,8 @@ section .title--sensor svg {
 section .sensor__nav {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(400px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  -ms-grid-rows: (1fr)[2];
-      grid-template-rows: repeat(2, 1fr);
+  -ms-grid-columns: (minmax(350px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-gap: 1rem;
 }
 
@@ -315,7 +313,7 @@ section .sensor__nav .sensor__nav {
           box-shadow: 0 0 0 #000;
   padding: 0.5rem 1rem;
   display: inline-block;
-  min-width: 400px;
+  min-width: 350px;
 }
 
 section .sensor__nav .sensor__nav:hover {
