@@ -10,6 +10,7 @@
       -ms-user-select: none;
           user-select: none;
   -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media screen and (min-width: 320px) and (max-width: 842px) {
