@@ -44,6 +44,44 @@ html::-webkit-scrollbar-thumb {
   border-radius: 6px;
 }
 
+body {
+  background-color: #f3f4f7;
+}
+
+.miru--toast {
+  border-radius: 4px;
+  overflow: hidden;
+  color: #000;
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.miru--toast::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.miru--toast.miru--warming::before {
+  background-color: #f9ee83;
+}
+
+.miru--toast.miru--error::before {
+  background-color: #ff767d;
+}
+
+.miru--toast.miru--notify::before {
+  background-color: #47d764;
+}
+
+.miru--toast .toast-close {
+  margin-left: 0.8rem;
+}
+
 .miru--modal__raspberry {
   color: #fff;
   display: none;
@@ -140,6 +178,16 @@ html::-webkit-scrollbar-thumb {
   width: 100%;
 }
 
+.miru--modal__toast {
+  display: none;
+}
+
+.miru--modal__toast .title {
+  font-size: 1.4rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
 .miru--checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -204,7 +252,6 @@ html::-webkit-scrollbar-thumb {
 }
 
 .container {
-  background-color: #f3f4f7;
   padding: 0 2rem;
 }
 
@@ -482,5 +529,62 @@ section .sensor__nav .sensor__nav--rgb--val--edit span {
 
 section .sensor__nav .sensor__nav--rgb--val--edit svg {
   width: 1.6rem;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 2rem;
+  margin-top: 4rem;
+  color: #323655;
+}
+
+footer .logo {
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+footer .logo--svg svg {
+  width: 6rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  fill: #323655;
+}
+
+footer .logo--name {
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}
+
+footer .decription {
+  width: 100%;
+  border-top: 2px solid #323655;
+  padding: 0.9rem 0;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+footer .copyright {
+  width: 100%;
+  border-top: 2px solid #323655;
+  padding: 0.9rem 0;
+  text-align: center;
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=styles.css.map */

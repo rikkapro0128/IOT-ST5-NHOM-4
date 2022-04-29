@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
     integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
   <link rel="stylesheet" href="style/css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -18,6 +20,7 @@
     integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="./app.js"></script>
+  <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
 <body>
@@ -42,6 +45,13 @@
           <img src="./assets/images/raspberry-pi.png" alt="">
         </div>
       </div>
+    </div>
+  </div>
+  <div class="miru--modal__toast">
+    <p class="title"></p>
+    <div class="ui green ok inverted button">
+      <i class="checkmark icon"></i>
+      đã hiểu
     </div>
   </div>
   <div class="container">
@@ -824,7 +834,28 @@
   </div>
   </section>
   <!-- THIS IS FOOTER SECTION -->
-  <footer></footer>
+  <footer>
+    <div class="logo">
+      <div class="logo--svg">
+        <svg height="512pt" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512" width="512pt"
+          xmlns="http://www.w3.org/2000/svg">
+          <g transform="matrix(.1 0 0 -.1 0 512)">
+            <path
+              d="m2400 4774c-288-44-509-141-717-316-240-200-404-488-457-797-9-52-17-96-19-97-2-2-37-10-78-18-308-60-566-257-708-542-77-154-107-305-98-488 22-474 372-860 849-936 42-7 104-11 138-8 51 4 66 9 91 35 55 54 47 148-16 189-15 10-63 19-124 24-191 17-341 88-476 224-93 95-136 163-178 283-42 121-50 288-18 414 81 325 344 544 689 574 90 8 133 28 155 72 8 15 19 79 26 140 49 470 369 849 819 971 88 24 114 26 282 26 159 0 197-3 267-21 464-123 787-498 834-966 18-184 40-210 186-222 407-34 703-347 705-745 1-132-19-216-78-339-39-80-60-108-138-185-144-144-281-209-477-226-61-5-106-14-122-25-26-17-57-71-57-99 0-35 30-86 62-107 29-18 44-20 128-16 173 9 371 78 514 181 132 95 268 259 331 401 54 122 76 221 82 362 7 157-6 248-51 378-121 348-422 597-797 659l-35 6-18 98c-49 279-175 521-376 723-214 215-478 347-774 388-72 10-290 13-346 5z" />
+            <path
+              d="m2485 3976c-83-20-146-56-211-120-69-70-107-142-125-238-37-201 88-416 284-487l27-11v-928-929l-49-31c-185-120-166-405 33-510 44-23 63-27 136-27 69 0 93 4 127 23 66 35 110 79 140 140 39 79 39 183 1 257-25 49-107 135-128 135-7 0-10 304-10 933v933l63 29c79 36 174 129 210 207 15 31 32 88 39 126 52 303-238 571-537 498zm173-251c161-68 161-292 0-360-96-40-205 4-249 100-73 158 89 326 249 260z" />
+            <path
+              d="m1708 3199c-225-35-327-313-176-484 22-25 60-57 84-71l45-26-3-792-3-792-27-41c-43-65-92-83-224-83h-110l-13 38c-55 152-212 268-379 279-285 20-505-215-471-502 29-236 264-411 502-374 142 22 286 130 338 253l23 56h95c53 0 122 4 155 10 139 23 260 113 319 238l32 67 3 829 2 828 59 58c43 42 63 71 77 111 74 224-99 434-328 398zm-750-2240c120-58 138-234 32-322-124-105-314-11-315 155 0 47 5 64 31 100 59 85 159 111 252 67z" />
+            <path
+              d="m3312 3198c-124-19-219-113-243-242-19-106 34-235 122-293l39-26v-796c0-868-1-857 57-963 35-63 120-143 185-173 66-30 157-45 274-45h91l33-66c156-317 603-331 783-24 127 218 35 506-198 617-221 105-482 11-586-212l-31-65h-106c-126 0-173 17-218 76l-29 37-3 803-2 802 35 22c51 32 111 105 129 157 33 95 11 217-53 293-60 74-174 113-279 98zm1060-2247c109-75 118-230 18-314-61-52-132-59-208-21-84 42-126 133-103 221 14 51 51 97 100 123 51 28 145 23 193-9z" />
+          </g>
+        </svg>
+      </div>
+      <span class="logo--name">system IOT</span>
+    </div>
+    <div class="decription">System IOT là hệ thống điều khiển thiết bị thông minh cho ngôi nhà của bạn, dữ liệu được lưu trữ và điều khiển tiện lợi mang đến trải nghiệm tốt cho người dùng, hệ thống được thiết kế bởi nhóm 4 IOT</div>
+    <div class="copyright">©2022 copyright by miru</div>
+  </footer>
   </div>
 </body>
 
