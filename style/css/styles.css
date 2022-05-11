@@ -342,6 +342,31 @@ section .title--sensor svg {
   width: 2rem;
 }
 
+section .chart--title {
+  margin-bottom: 1rem;
+}
+
+section .chart--title > svg {
+  width: 2rem;
+}
+
+section .chart--title > h1 {
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+section .wrapper--chart {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(350px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-gap: 1rem;
+}
+
+section .wrapper--chart > .chart iframe {
+  width: 100%;
+}
+
 section .sensor__nav {
   display: -ms-grid;
   display: grid;

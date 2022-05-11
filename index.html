@@ -21,16 +21,18 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="./app.js"></script>
   <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </head>
 
 <body>
+  </div>
   <div class="miru--modal__raspberry">
-    <h1>tình trạng kết nối</h1>
+    <h1>số node hiện có</h1>
     <div class="wrap--node">
       <div class="node connected">
         <h3 class="label">
           <span class="name">raspberry 1</span>
-          <span class="state">connected</span>
+          <!-- <span class="state">connected</span> -->
         </h3>
         <div class="box--image">
           <img src="./assets/images/raspberry-pi.png" alt="">
@@ -39,7 +41,7 @@
       <div class="node connected">
         <h3 class="label">
           <span class="name">raspberry 2</span>
-          <span class="state">connected</span>
+          <!-- <span class="state">connected</span> -->
         </h3>
         <div class="box--image">
           <img src="./assets/images/raspberry-pi.png" alt="">
@@ -116,7 +118,7 @@
             }
           </style>
         </svg>
-        <span>trạng thái node</span>
+        <span>node sử dụng</span>
       </p>
     </header>
     <!-- THIS IS MAIN CONTENT SECTION -->
@@ -930,6 +932,95 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="chart--title">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1"
+          x="0px" y="0px" viewBox="0 0 59 59" style="enable-background:new 0 0 59 59;" xml:space="preserve">
+          <g>
+            <g>
+              <path style="fill:#E8D5B2;"
+                d="M30.22,5L1.241,34.218c-0.987,0.987-0.987,2.588,0,3.576l20.466,20.466    c0.987,0.987,2.588,0.987,3.576,0L53.5,29.28L53.5,5H30.22z M43.5,19c-2.209,0-4-1.791-4-4c0-2.209,1.791-4,4-4s4,1.791,4,4    C47.5,17.209,45.709,19,43.5,19z" />
+              <path style="fill:#CBB292;"
+                d="M43.5,7c-4.418,0-8,3.582-8,8s3.582,8,8,8s8-3.582,8-8S47.918,7,43.5,7z M43.5,19    c-2.209,0-4-1.791-4-4c0-2.209,1.791-4,4-4s4,1.791,4,4C47.5,17.209,45.709,19,43.5,19z" />
+            </g>
+            <path style="fill:#D4C3A5;"
+              d="M10.798,24.582l-9.557,9.636c-0.987,0.987-0.987,2.588,0,3.576l20.466,20.466   c0.987,0.987,2.588,0.987,3.576,0l9.469-9.724L10.798,24.582z" />
+            <path style="fill:#D75A4A;"
+              d="M43.5,16c-0.256,0-0.512-0.098-0.707-0.293c-0.391-0.391-0.391-1.023,0-1.414l14-14   c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414l-14,14C44.012,15.902,43.756,16,43.5,16z" />
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <g>
+          </g>
+          <style xmlns="" id="PDFTStyle">
+            .qtip-content {
+              font-family: "Times New Roman";
+              font-size: 17px;
+              line-height: 19px;
+            }
+
+            .qtip-max-width {
+              max-width: 300px;
+            }
+          </style>
+        </svg>
+        <h1>biểu đồ dữ liệu</h1>
+      </div>
+      <div class="wrapper--chart">
+        <div class="chart">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/1716046/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+        <div class="chart">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/1716046/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+        <div class="chart">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/1716046/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+        <div class="chart">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/1716046/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+        <div class="chart">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/1716046/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+        </div>
+        <div class="chart">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/1716052/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&max=1&min=0&results=60&type=line"></iframe>
+        </div>
+        <div class="chart">
+          <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/1716054/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
         </div>
       </div>
   </div>

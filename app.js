@@ -65,28 +65,28 @@ $(function () {
     $(ele).click(handleCheckBox);
   }
 
-  $('#edit-rgb').on('change',function(){
+  $('#edit-rgb').on('change', function () {
     const hexString = $(this).val();
     const numString = parseInt(hexString.split('#')[1], 16)
-    if(!manageDevice[0].wait) {
+    if (!manageDevice[0].wait) {
       // console.log(numString);
       setValueByChannle(manageDevice[0].api_key, { field1: numString }, 0)
-      .then((data) => {
-        if (data !== 0) {
-          showToast(`Đã thay đổi trạng thái led RGB`, 'notify', timeShowToast);
-          $('#change-color').css('background-color', hexString);
-        } else {
-          showToast(`không thể thay đổi trạng thái thiết bị RGB Led`, 'notify', timeShowToast);
-        }
-      })
-    }else {
+        .then((data) => {
+          if (data !== 0) {
+            showToast(`Đã thay đổi trạng thái led RGB`, 'notify', timeShowToast);
+            $('#change-color').css('background-color', hexString);
+          } else {
+            showToast(`không thể thay đổi trạng thái thiết bị RGB Led`, 'notify', timeShowToast);
+          }
+        })
+    } else {
       showToast(`${messageDisableByWait} ${manageDevice[0].timeWaitRemain / 1000}s`, 'warming', timeShowToast);
     }
   });
 
 
   function showToast(message = 'no message!', type = 'notify', time = -1) {
-    if($(window).width() > 786) {
+    if ($(window).width() > 786) {
       Toastify({
         text: message,
         className: `miru--toast miru--${type}`,
@@ -102,7 +102,7 @@ $(function () {
         duration: time,
         avatar: `${type === 'notify' ? 'assets/images/notification-pngrepo-com.png' : (type === 'error' ? 'assets/images/error-pngrepo-com.png' : 'assets/images/warning-pngrepo-com.png')}`,
       }).showToast();
-    }else {
+    } else {
       $('.miru--modal__toast').find('.title').text(message);
       $('.miru--modal__toast').modal('show');
     }
