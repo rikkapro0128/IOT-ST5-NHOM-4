@@ -477,8 +477,6 @@ section .sensor__nav .sensor__nav--rgb--val--shape {
   width: 6rem;
   height: 6rem;
   background-color: #38ff38;
-  -webkit-box-shadow: 0 0 16px #38ff38;
-          box-shadow: 0 0 16px #38ff38;
   border-radius: 50%;
 }
 

@@ -14,11 +14,19 @@ $(function () {
       off: 'không chạm',
     },
     smoke: {
-      detach: 'có khói',
-      un_detach: 'không khói',
+      detach: 'có gas',
+      un_detach: 'không gas',
     },
   };
   const manageDevice = [
+    {
+      field: 'rbg_led',
+      id: 1716054,
+      type: 'hex',
+      wait: false,
+      timeWaitRemain: 0,
+      api_key: 'BFG26RKKLXT4CJ0Q',
+    },
     {
       field: 'light',
       id: 1716053,
@@ -35,14 +43,6 @@ $(function () {
       timeWaitRemain: 0,
       api_key: 'JAQHPWZTHOO8ENA8',
     },
-    {
-      field: 'rbg_led',
-      id: 1716054,
-      type: 'hex',
-      wait: false,
-      timeWaitRemain: 0,
-      api_key: 'BFG26RKKLXT4CJ0Q',
-    },
   ]
 
   const manageSensor = {
@@ -52,6 +52,7 @@ $(function () {
       field2: 'humi',
       field3: 'smoke',
       field4: 'touch',
+      field5: 'sound',
     }
   }
 
@@ -63,6 +64,26 @@ $(function () {
   for (const ele of $('.miru--checkbox > .behavior')) {
     $(ele).click(handleCheckBox);
   }
+
+  $('#edit-rgb').on('change',function(){
+    const hexString = $(this).val();
+    const numString = parseInt(hexString.split('#')[1], 16)
+    if(!manageDevice[0].wait) {
+      // console.log(numString);
+      setValueByChannle(manageDevice[0].api_key, { field1: numString }, 0)
+      .then((data) => {
+        if (data !== 0) {
+          showToast(`Đã thay đổi trạng thái led RGB`, 'notify', timeShowToast);
+          $('#change-color').css('background-color', hexString);
+        } else {
+          showToast(`không thể thay đổi trạng thái thiết bị RGB Led`, 'notify', timeShowToast);
+        }
+      })
+    }else {
+      showToast(`${messageDisableByWait} ${manageDevice[0].timeWaitRemain / 1000}s`, 'warming', timeShowToast);
+    }
+  });
+
 
   function showToast(message = 'no message!', type = 'notify', time = -1) {
     if($(window).width() > 786) {
@@ -162,12 +183,17 @@ $(function () {
       getValueByChannle(manageSensor.idChannle, 'muti')
         .then(data => {
           for (const field of Object.entries(manageSensor.fields)) {
+            // console.log(field);
             if (field[1] === 'smoke') {
-              $(`.${field[1]}.sensor__nav--item`).find('.nav--center--val').first().text(data[field[0]] ? TITLE.smoke.detach : TITLE.smoke.un_detach);
-            } else if (field[1] === 'touch') {
-              $(`.${field[1]}.sensor__nav--item`).find('.nav--center--val').first().text(data[field[0]] ? TITLE.touch.on : TITLE.touch.off);
-            } else {
+              $(`.${field[1]}.sensor__nav--item`).find('.nav--center--val').first().text(parseInt(data[field[0]]) ? TITLE.smoke.detach : TITLE.smoke.un_detach);
+            } else if (field[1] === 'temp') {
               $(`.${field[1]}.sensor__nav--item`).find('.nav--center--val').first().text(data[field[0]]);
+            } else if (field[1] === 'humi') {
+              $(`.${field[1]}.sensor__nav--item`).find('.nav--center--val').first().text(data[field[0]]);
+            } else if (field[1] === 'touch') {
+              $(`.${field[1]}.sensor__nav--item`).find('.nav--center--val').first().text(parseInt(data[field[0]]) ? TITLE.touch.on : TITLE.touch.off);
+            } else if (field[1] === 'sound') {
+              $(`.${field[1]}.sensor__nav--item`).find('.nav--center--val').first().text(data[field[0]] + 'dB');
             }
           }
         })
